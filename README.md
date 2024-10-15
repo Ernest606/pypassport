@@ -1,3 +1,5 @@
+THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/roeften/pypassport
+
 # pypassport
 pypassport for python3
 
