@@ -1,5 +1,24 @@
 THIS PROJECT IS MODIFIED VERSION OF THIS GITHUB REPOSITORY: https://github.com/roeften/pypassport
 
+## Entrypoint to install pypassport:
+1. Update your package lists:
+    ```bash
+    sudo apt-get update
+    ```
+2. Install the necessary dependencies:
+    ```bash
+    sudo apt-get install libpcsclite-dev pcscd
+    ```
+3. Navigate to the `pypassport` directory:
+    ```bash
+    cd pypassport
+    ```
+4. Install the `pypassport` package:
+    ```bash
+    pip install .
+    ```
+
+
 # pypassport
 pypassport for python3
 
