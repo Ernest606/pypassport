@@ -372,7 +372,28 @@ class ReaderManager(Singleton):
             reader = self.create(driver)
             while not reader.connect(readerNum) and cpt < timeout:
                 time.sleep(wait)
+    
                 cpt += wait
             if cpt == timeout:
                 raise TimeOutException("Time-out")
             return reader
+
+    def isCardInserted(self, driver=None, readerNum=None):
+        """
+        Check if a card is currently inserted in the reader.
+        If I{driver} and I{readerNum} are set, it checks the specified reader with the specified driver.
+        If both are None, it auto-detects the reader.
+
+        @param driver: The driver to use for checking the reader.
+        @type driver: A class inheriting from Reader.
+        @param readerNum: The reader to check.
+        @type readerNum: Integer.
+        
+        @return: True if a card is detected, False otherwise.
+        """
+        if driver is None and readerNum is None:
+            reader = self._autoDetect()
+            return True if reader else False
+        else:
+            reader = self.create(driver)
+            return True if reader.connect(readerNum) else False
